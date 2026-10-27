@@ -1,0 +1,12 @@
+name: gate-probe
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          echo "GATE_PROBE run=$GITHUB_RUN_ID head=${{ github.event.pull_request.head.sha }}"
